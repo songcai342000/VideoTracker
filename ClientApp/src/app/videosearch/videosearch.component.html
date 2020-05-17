@@ -1,0 +1,19 @@
+<div id="search-component">
+  <h4>Search Video</h4>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div>
+      <p> Form Status: {{ searchForm.status }}</p>
+      <div style="border-radius: 2px; display:inline-block"><input type="search" placeholder="Type your search term" formControlName="searchString" required></div><div style="display:inline-block">
+        <button type="submit" [disabled]="!searchForm.valid">Submit</button>
+      </div>
+    </div>
+      <h3>Search By</h3>
+        <div>
+          <input type="radio" value="id" formControlName="condition"> Id
+        </div>
+        <div>
+          <input type="radio" value="title" formControlName="condition"> Title
+        </div>
+  </form>
+
+</div>
