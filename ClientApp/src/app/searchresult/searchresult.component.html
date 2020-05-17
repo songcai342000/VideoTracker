@@ -1,0 +1,7 @@
+<div *ngIf="videos">
+  <ul>
+    <li *ngFor="let video of videos">
+      <a href="/videodetails?id={{video.videoId}}">{{video.title}}</a>
+    </li>
+  </ul>
+</div>
