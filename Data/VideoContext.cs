@@ -14,22 +14,10 @@ namespace videotrak.Data
         }
 
         public DbSet<Video> Videos { get; set; }
-        public DbSet<Actor> Actors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<VideoActor>()
-            .HasKey(va => new { va.VideoId, va.ActorId });
-
-            modelBuilder.Entity<VideoActor>()
-                .HasOne(va => va.Video)
-                .WithMany(v => v.VideoActors)
-                .HasForeignKey(va => va.VideoId);
-
-            modelBuilder.Entity<VideoActor>()
-                .HasOne(va => va.Actor)
-                .WithMany(a => a.VideoActors)
-                .HasForeignKey(va => va.ActorId);
+           modelBuilder.Entity<Video>().ToTable("Videos");
         }
     }
 }
