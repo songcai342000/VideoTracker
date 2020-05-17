@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Watch</th>
+      <th>Watched</th>
+      <th>Genre</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let video of videos" [class.selected]="video===selectedVideo">
+      <td>{{video.title}}</td>
+      <td><a href="{{video.link}}">Link</a></td>
+      <td>
+        <span *ngIf="video.watched">Yes</span>
+        <span *ngIf="!video.watched">No</span>
+      </td>
+      <td>{{video.genre}}</td>
+      <td>
+        <a href="/videodetails?id={{video.videoId}}">Detail</a>&nbsp;&nbsp;
+        <a href="/deletevideo?id={{video.videoId}}">Delete</a>&nbsp;&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
